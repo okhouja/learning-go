@@ -1,0 +1,27 @@
+# Binaries and build artifacts
+*.exe
+*.out
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+
+# Go Modules and dependencies
+vendor/
+bin/
+pkg/
+go.sum
+go.mod
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# Logs and temporary files
+*.log
+*.tmp
+*.test
