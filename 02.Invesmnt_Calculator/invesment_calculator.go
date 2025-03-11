@@ -13,10 +13,12 @@ func main() {
 	// years := 10.0
 	var years float64
 
-	fmt.Print("Invesment Amount: ")
+	// fmt.Print("Invesment Amount: ")
+	outputText("Invesment Amount: ")
 	fmt.Scan(&invesmentAmount)
 
-	fmt.Print("Expected Return Rate: ")
+	// fmt.Print("Expected Return Rate: ")
+	outputText("Expected Return Rate: ")
 	fmt.Scan(&expectingReturnRate)
 
 	fmt.Print("Years: ")
@@ -34,5 +36,13 @@ func main() {
 	// fmt.Println("Future Value (adjusted for inflation):",futureRealValue)
 	// fmt.Printf("Future Value: %.1f\nFuture Value (adjusted for inflation): %.1f", futureValue,futureRealValue)
 	
+	// multiline String (Working with Backtick :``)
+	// fmt.Printf(`Future Value: %.1f\n
+	// Future Value (adjusted for inflation): %.1f`, futureValue,futureRealValue)
+
 	fmt.Print(formattedFV, formattedRFV)
+	
+}
+	func outputText(text string){
+		fmt.Println(text)
 }
