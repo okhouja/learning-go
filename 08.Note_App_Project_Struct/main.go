@@ -1,41 +1,51 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"errors"
+	"os"
+	"strings"
+
+	"example.com/note/note"
 )
+
 func main(){
-	title, content, err := getNoteData()
+	title, content := getNoteData()
+
+	userNote, err := note.New(title, content)
 
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
+	userNote.Display()
 }
 
-func getNoteData() (string, string, error){
-	title, err := getUserInput("Note title:")
+func getNoteData() (string, string){
+	title := getUserInput("Note title:")
+	content := getUserInput("Note content:")
+
+	return title, content
+}
+
+func getUserInput(prompt string) string{
+	fmt.Printf("%v ",prompt)
+	// var value string	
+	// fmt.Scanln(&value) // good for one word input and not for multiple words
+
+	reader := bufio.NewReader(os.Stdin)
+
+	text, err := reader.ReadString('\n') // good for multiple words input
 
 	if err != nil {
 		fmt.Println(err)
-		return "", "", err
+		return ""
 	}
-	content, err := getUserInput("Note content:")
-	if err != nil {
-		fmt.Println(err)
-		return "", "", err
-	}
-	return title, content, nil
-}
 
-func getUserInput(prompt string){
-	fmt.Print(prompt)
-	var value string	
-	fmt.Scan(&value)
+	text = strings.TrimSuffix(text, "\n")
+	text = strings.TrimSuffix(text, "\r")
 	
-	if value == "" {
-		return "", errors.New("invalid input")
-	}
-
-	return value, nil
+	
+	return text
 }
