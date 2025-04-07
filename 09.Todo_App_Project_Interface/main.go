@@ -64,19 +64,41 @@ func main() {
 
 // Any type interfaces
 func printSomething(value interface{}) {
-	// switch type
-	switch value.(type) {
-	case int:
-		fmt.Println("Integer",value)
-	case float64:
-		fmt.Println("Float",value)
-	case string:
-		fmt.Println("String")
-	default:
-		// .....
-		fmt.Println("Unknown")
+	// Extracting Type Information from Values
+	intVal, ok := value.(int)
+
+	if ok {
+	 fmt.Println("Interger:",intVal) 
+	 return
 	}
-	fmt.Println(value)
+
+	floatVal, ok := value.(float64)
+
+	if ok {
+	 fmt.Println("Float:", floatVal)
+	 return
+	}
+
+	stringVal, ok := value.(string)
+
+	if ok {
+	 fmt.Println("String:", stringVal)
+	 return
+	}
+
+	// switch type
+	// switch value.(type) {
+	// case int:
+	// 	fmt.Println("Integer",value)
+	// case float64:
+	// 	fmt.Println("Float",value)
+	// case string:
+	// 	fmt.Println("String")
+	// default:
+	// 	// .....
+	// 	fmt.Println("Unknown")
+	// }
+	// fmt.Println(value)
 }
 
 func outputData(data outputtable) error {
