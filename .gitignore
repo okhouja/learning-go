@@ -26,3 +26,4 @@ go.mod
 *.tmp
 *.test
 *.json
+*.txt
