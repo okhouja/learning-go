@@ -34,7 +34,7 @@ func main() {
 	printSomething(1)
 	printSomething(1.1)
 
-	
+
 	title, content := getNoteData()
 	todoText := getUserInput("Todo text:")
 
@@ -64,6 +64,18 @@ func main() {
 
 // Any type interfaces
 func printSomething(value interface{}) {
+	// switch type
+	switch value.(type) {
+	case int:
+		fmt.Println("Integer",value)
+	case float64:
+		fmt.Println("Float",value)
+	case string:
+		fmt.Println("String")
+	default:
+		// .....
+		fmt.Println("Unknown")
+	}
 	fmt.Println(value)
 }
 
