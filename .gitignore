@@ -25,3 +25,4 @@ go.mod
 *.log
 *.tmp
 *.test
+*.json
