@@ -15,6 +15,12 @@ func main(){
 	prices = prices[1:]
 
 	fmt.Println(prices)
+
+	discountPrices := []float64{101.99, 80.99, 20.59}
+	// Append all elements from discountPrices to prices
+	prices = append(prices, discountPrices...)	// ... is the spread operator
+
+	fmt.Println(prices)
 }
 
 // func main(){
