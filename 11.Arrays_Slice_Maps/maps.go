@@ -8,4 +8,11 @@ func main() {
 		"Amazon Web Services": "https://aws.com",
 	}
 	fmt.Println(websites)
+
+	websites["Facebook"] = "https://facebook.com"
+	fmt.Println(websites)
+
+	// 
+	delete(websites, "Google")
+	fmt.Println(websites)
 }
