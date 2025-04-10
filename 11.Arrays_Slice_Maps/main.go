@@ -26,7 +26,19 @@ func main() {
 	courseRatings["vue"] = 4.9
 
 	courseRatings.output()
-	
+
 	// fmt.Println(cap(userNames)) // Prints the capacity of the slice
 	// fmt.Println(len(courseRatings)) // Prints the number of key-value pairs in the map
+
+	for index, value := range userNames { // range returns the index and value of the slice
+		fmt.Println("Index:", index)
+		fmt.Println("Value:", value)
+
+		// fmt.Println(userNames[index])
+	}
+
+	for key, value := range courseRatings { // range returns the key and value of the map
+		fmt.Println("Key:", key)
+		fmt.Println("Value:", value)
+	}
 }
