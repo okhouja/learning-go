@@ -8,15 +8,26 @@ type transformFN func(int) int //
 // Custom type (Type Aliases) for function that takes an int and returns an int
 
 func main() {
-	numbers := []int{1, 2, 3, 4 } // Original slice of integers
-	
+	numbers := []int{1, 2, 3, 4} // Original slice of integers
+
+	moreNumbers := []int{5, 1, 2}
+
 	doubled := transformNumbers(&numbers, double) // Apply the 'double' function to each element in numbers
-	
+
 	tripled := transformNumbers(&numbers, triple) // Apply the 'triple' function to each element in numbers
-	
+
 	// Print the results
 	fmt.Println(doubled) // [2 4 6 8]
 	fmt.Println(tripled) // [3 6 9 12]
+
+	transformerFn1 := getTransformerFunction(&numbers)
+	transformerFn2 := getTransformerFunction(&moreNumbers)
+
+	transformedNumbers := transformNumbers(&numbers, transformerFn1)
+	moreTransformedNumbers := transformNumbers(&moreNumbers, transformerFn2)
+
+	fmt.Println(transformedNumbers)
+	fmt.Println(moreTransformedNumbers)
 }
 
 // transformNumbers takes a pointer to a slice of integers
@@ -31,6 +42,14 @@ func transformNumbers(numbers *[]int, transform transformFN) []int {
 	}
 
 	return dNumbers
+}
+
+func getTransformerFunction(numbers *[]int) transformFN {
+	if (*numbers)[0] == 1 {
+		return double
+	} else {
+		return triple
+	}
 }
 
 // double returns the given number multiplied by 2.
